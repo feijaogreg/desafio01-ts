@@ -1,17 +1,20 @@
 export abstract class DioAccount {
-  private name: string
+  private readonly name: string
   private readonly accountNumber: number
-  balance: number = 0
-  public readonly status: boolean = true
+  private balance: number = 0
+  private readonly status: boolean = true
 
   constructor(name: string, accountNumber: number){
     this.name = name
     this.accountNumber = accountNumber
   }
 
-  setName = (name: string): void => {
-    this.name = name
-    console.log('Nome alterado com sucesso!')
+  setBalance = (value: number): void => {
+    this.balance = value;
+  }
+
+  getBalance = (): number => {
+    return this.balance;
   }
 
   getName = (): string => {
@@ -41,10 +44,6 @@ export abstract class DioAccount {
 
     throw Error("Conta não ativa.")
 
-  }
-
-  getBalance = (): void => {
-    console.log(this.balance)
   }
 
   public validateStatus = (): boolean => {
