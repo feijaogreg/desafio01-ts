@@ -2,11 +2,7 @@ export abstract class DioAccount {
   private name: string
   private readonly accountNumber: number
   balance: number = 0
-  private status: boolean = true
-  // [ ] Implementar os métodos de depósito (deposit) e saque (withdraw) na classe DioAccount
-  // - Os valores dos saldos devem ser alterados, de acordo com o valor informado para depósito
-  // - Apenas contas com o status true e saldo (balance) maior que o valor solicitado podem fazer saques
-
+  public readonly status: boolean = true
 
   constructor(name: string, accountNumber: number){
     this.name = name
@@ -51,7 +47,7 @@ export abstract class DioAccount {
     console.log(this.balance)
   }
 
-  private validateStatus = (): boolean => {
+  public validateStatus = (): boolean => {
     if (this.status) {
       return this.status
     }
